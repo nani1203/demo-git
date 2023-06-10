@@ -1,1 +1,34 @@
-
+Started by user Bharath Manimala
+[Pipeline] Start of Pipeline
+[Pipeline] node
+Running on Jenkins in /var/lib/jenkins/workspace/demo
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (checkout)
+[Pipeline] echo
+Hello World
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Build)
+[Pipeline] echo
+This is sample build
+[Pipeline] emailext
+Error evaluating token: Error processing tokens
+Error evaluating token: Error processing tokens
+Sending email to: bharath.manimala@bluepal.com
+Connection error sending email, retrying once more in 10 seconds...
+Connection error sending email, retrying once more in 10 seconds...
+Failed after second try sending email
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Code Quality)
+[Pipeline] echo
+This is sample code
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] }
+[Pipeline] // node
+[Pipeline] End of Pipeline
+Finished: SUCCESS
