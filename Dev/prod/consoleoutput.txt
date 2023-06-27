@@ -1,1 +1,243 @@
+Started by user Bharath Manimala
+[Pipeline] Start of Pipeline
+[Pipeline] node
+Running on Jenkins in /var/lib/jenkins/workspace/URL
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Check URL)
+[Pipeline] script
+[Pipeline] {
+[Pipeline] sh
++ curl --silent --head --fail https://www.youtube.com/
+HTTP/2 200 
+content-type: text/html; charset=utf-8
+x-content-type-options: nosniff
+cache-control: no-cache, no-store, max-age=0, must-revalidate
+pragma: no-cache
+expires: Mon, 01 Jan 1990 00:00:00 GMT
+date: Mon, 26 Jun 2023 09:42:54 GMT
+content-length: 753828
+x-frame-options: SAMEORIGIN
+strict-transport-security: max-age=31536000
+report-to: {"group":"youtube_main","max_age":2592000,"endpoints":[{"url":"https://csp.withgoogle.com/csp/report-to/youtube_main"}]}
+cross-origin-opener-policy-report-only: same-origin-allow-popups; report-to="youtube_main"
+origin-trial: AvC9UlR6RDk2crliDsFl66RWLnTbHrDbp+DiY6AYz/PNQ4G4tdUTjrHYr2sghbkhGQAVxb7jaPTHpEVBz0uzQwkAAAB4eyJvcmlnaW4iOiJodHRwczovL3lvdXR1YmUuY29tOjQ0MyIsImZlYXR1cmUiOiJXZWJWaWV3WFJlcXVlc3RlZFdpdGhEZXByZWNhdGlvbiIsImV4cGlyeSI6MTcxOTUzMjc5OSwiaXNTdWJkb21haW4iOnRydWV9
+permissions-policy: ch-ua-arch=*, ch-ua-bitness=*, ch-ua-full-version=*, ch-ua-full-version-list=*, ch-ua-model=*, ch-ua-wow64=*, ch-ua-form-factor=*, ch-ua-platform=*, ch-ua-platform-version=*
+p3p: CP="This is not a P3P policy! See http://support.google.com/accounts/answer/151657?hl=en-GB for more info."
+server: ESF
+x-xss-protection: 0
+set-cookie: GPS=1; Domain=.youtube.com; Expires=Mon, 26-Jun-2023 10:12:55 GMT; Path=/; Secure; HttpOnly
+set-cookie: YSC=J1RJLva9Oxg; Domain=.youtube.com; Path=/; Secure; HttpOnly; SameSite=none
+set-cookie: VISITOR_INFO1_LIVE=OWPx2N8MSPA; Domain=.youtube.com; Expires=Sat, 23-Dec-2023 09:42:55 GMT; Path=/; Secure; HttpOnly; SameSite=none
+alt-svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
 
+[Pipeline] sh
++ curl --write-out '%{http_code}' --silent --output /dev/null https://www.youtube.com/
+[Pipeline] echo
+URL is working: https://www.youtube.com/
+[Pipeline] }
+[Pipeline] // script
+Post stage
+[Pipeline] emailext
+Sending mail from default account using System Admin e-mail address
+messageContentType = text/html; charset=UTF-8
+Request made to attach build log
+Adding recipients from project recipient list
+Analyzing: bharath.manimala@bluepal.com
+Looking for: bharath.manimala@bluepal.com
+	starting at: 0
+	firstFoundIdx: 0
+	firstFoundIdx-substring: bharath.manimala@bluepal.com
+	=> found type: 0
+Analyzing: bharath.manimala@bluepal.com
+Looking for: bharath.manimala@bluepal.com
+	starting at: 0
+	firstFoundIdx: 0
+	firstFoundIdx-substring: bharath.manimala@bluepal.com
+	=> found type: 0
+Analyzing: bharath.manimala@bluepal.com
+Looking for: bharath.manimala@bluepal.com
+	starting at: 0
+	firstFoundIdx: 0
+	firstFoundIdx-substring: bharath.manimala@bluepal.com
+	=> found type: 0
+Adding recipients from trigger recipient list
+Successfully created MimeMessage
+Sending email to: bharath.manimala@bluepal.com
+DEBUG: getProvider() returning jakarta.mail.Provider[TRANSPORT,smtp,com.sun.mail.smtp.SMTPTransport,Oracle]
+DEBUG SMTP: need username and password for authentication
+DEBUG SMTP: protocolConnect returning false, host=smtp.gmail.com, user=jenkins, password=<null>
+DEBUG SMTP: useEhlo true, useAuth true
+DEBUG SMTP: trying to connect to host "smtp.gmail.com", port 465, isSSL false
+220 smtp.gmail.com ESMTP i9-20020a17090332c900b00192aa53a7d5sm3820373plr.8 - gsmtp
+DEBUG SMTP: connected to host "smtp.gmail.com", port: 465
+EHLO ip-172-31-43-32.ap-south-1.compute.internal
+250-smtp.gmail.com at your service, [13.232.86.98]
+250-SIZE 35882577
+250-8BITMIME
+250-AUTH LOGIN PLAIN XOAUTH2 PLAIN-CLIENTTOKEN OAUTHBEARER XOAUTH
+250-ENHANCEDSTATUSCODES
+250-PIPELINING
+250-CHUNKING
+250 SMTPUTF8
+DEBUG SMTP: Found extension "SIZE", arg "35882577"
+DEBUG SMTP: Found extension "8BITMIME", arg ""
+DEBUG SMTP: Found extension "AUTH", arg "LOGIN PLAIN XOAUTH2 PLAIN-CLIENTTOKEN OAUTHBEARER XOAUTH"
+DEBUG SMTP: Found extension "ENHANCEDSTATUSCODES", arg ""
+DEBUG SMTP: Found extension "PIPELINING", arg ""
+DEBUG SMTP: Found extension "CHUNKING", arg ""
+DEBUG SMTP: Found extension "SMTPUTF8", arg ""
+DEBUG SMTP: protocolConnect login, host=smtp.gmail.com, user=bharath.ado@gmail.com, password=<non-null>
+DEBUG SMTP: Attempt to authenticate using mechanisms: LOGIN PLAIN DIGEST-MD5 NTLM XOAUTH2 
+DEBUG SMTP: Using mechanism LOGIN
+DEBUG SMTP: AUTH LOGIN command trace suppressed
+DEBUG SMTP: AUTH LOGIN succeeded
+DEBUG SMTP: use8bit false
+MAIL FROM:<nobody@nowhere>
+250 2.1.0 OK i9-20020a17090332c900b00192aa53a7d5sm3820373plr.8 - gsmtp
+DEBUG SMTP: sendPartial set
+RCPT TO:<bharath.manimala@bluepal.com>
+250 2.1.5 OK i9-20020a17090332c900b00192aa53a7d5sm3820373plr.8 - gsmtp
+DEBUG SMTP: Verified Addresses
+DEBUG SMTP:   bharath.manimala@bluepal.com
+DATA
+354  Go ahead i9-20020a17090332c900b00192aa53a7d5sm3820373plr.8 - gsmtp
+Date: Mon, 26 Jun 2023 09:42:55 +0000 (UTC)
+From: address not configured yet <nobody@nowhere>
+To: bharath.manimala@bluepal.com
+Message-ID: <868061740.7.1687772578090@ip-172-31-43-32.ap-south-1.compute.internal>
+Subject: Jenkins Pipeline Build Stage Success: URL #5
+MIME-Version: 1.0
+Content-Type: multipart/mixed; 
+	boundary="----=_Part_6_816946123.1687772575909"
+X-Jenkins-Job: URL
+X-Jenkins-Result: SUCCESS
+List-ID: 
+
+------=_Part_6_816946123.1687772575909
+Content-Type: text/html; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+The build URL #5 PASS:: Jenkins Pipeline Deployment Notification.
+------=_Part_6_816946123.1687772575909
+Content-Type: text/plain; charset=us-ascii; name=build.log
+Content-Transfer-Encoding: 7bit
+Content-Disposition: attachment; filename=build.log
+
+Started by user Bharath Manimala
+[Pipeline] Start of Pipeline
+[Pipeline] node
+Running on Jenkins in /var/lib/jenkins/workspace/URL
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Check URL)
+[Pipeline] script
+[Pipeline] {
+[Pipeline] sh
++ curl --silent --head --fail https://www.youtube.com/
+HTTP/2 200 
+content-type: text/html; charset=utf-8
+x-content-type-options: nosniff
+cache-control: no-cache, no-store, max-age=0, must-revalidate
+pragma: no-cache
+expires: Mon, 01 Jan 1990 00:00:00 GMT
+date: Mon, 26 Jun 2023 09:42:54 GMT
+content-length: 753828
+x-frame-options: SAMEORIGIN
+strict-transport-security: max-age=31536000
+report-to: {"group":"youtube_main","max_age":2592000,"endpoints":[{"url":"https://csp.withgoogle.com/csp/report-to/youtube_main"}]}
+cross-origin-opener-policy-report-only: same-origin-allow-popups; report-to="youtube_main"
+origin-trial: AvC9UlR6RDk2crliDsFl66RWLnTbHrDbp+DiY6AYz/PNQ4G4tdUTjrHYr2sghbkhGQAVxb7jaPTHpEVBz0uzQwkAAAB4eyJvcmlnaW4iOiJodHRwczovL3lvdXR1YmUuY29tOjQ0MyIsImZlYXR1cmUiOiJXZWJWaWV3WFJlcXVlc3RlZFdpdGhEZXByZWNhdGlvbiIsImV4cGlyeSI6MTcxOTUzMjc5OSwiaXNTdWJkb21haW4iOnRydWV9
+permissions-policy: ch-ua-arch=*, ch-ua-bitness=*, ch-ua-full-version=*, ch-ua-full-version-list=*, ch-ua-model=*, ch-ua-wow64=*, ch-ua-form-factor=*, ch-ua-platform=*, ch-ua-platform-version=*
+p3p: CP="This is not a P3P policy! See http://support.google.com/accounts/answer/151657?hl=en-GB for more info."
+server: ESF
+x-xss-protection: 0
+set-cookie: GPS=1; Domain=.youtube.com; Expires=Mon, 26-Jun-2023 10:12:55 GMT; Path=/; Secure; HttpOnly
+set-cookie: YSC=J1RJLva9Oxg; Domain=.youtube.com; Path=/; Secure; HttpOnly; SameSite=none
+set-cookie: VISITOR_INFO1_LIVE=OWPx2N8MSPA; Domain=.youtube.com; Expires=Sat, 23-Dec-2023 09:42:55 GMT; Path=/; Secure; HttpOnly; SameSite=none
+alt-svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+
+[Pipeline] sh
++ curl --write-out '%{http_code}' --silent --output /dev/null https://www.youtube.com/
+[Pipeline] echo
+URL is working: https://www.youtube.com/
+[Pipeline] }
+[Pipeline] // script
+Post stage
+[Pipeline] emailext
+Sending mail from default account using System Admin e-mail address
+messageContentType = text/html; charset=UTF-8
+Request made to attach build log
+Adding recipients from project recipient list
+Analyzing: bharath.manimala@bluepal.com
+Looking for: bharath.manimala@bluepal.com
+	starting at: 0
+	firstFoundIdx: 0
+	firstFoundIdx-substring: bharath.manimala@bluepal.com
+	=> found type: 0
+Analyzing: bharath.manimala@bluepal.com
+Looking for: bharath.manimala@bluepal.com
+	starting at: 0
+	firstFoundIdx: 0
+	firstFoundIdx-substring: bharath.manimala@bluepal.com
+	=> found type: 0
+Analyzing: bharath.manimala@bluepal.com
+Looking for: bharath.manimala@bluepal.com
+	starting at: 0
+	firstFoundIdx: 0
+	firstFoundIdx-substring: bharath.manimala@bluepal.com
+	=> found type: 0
+Adding recipients from trigger recipient list
+Successfully created MimeMessage
+Sending email to: bharath.manimala@bluepal.com
+DEBUG: getProvider() returning jakarta.mail.Provider[TRANSPORT,smtp,com.sun.mail.smtp.SMTPTransport,Oracle]
+DEBUG SMTP: need username and password for authentication
+DEBUG SMTP: protocolConnect returning false, host=smtp.gmail.com, user=jenkins, password=<null>
+DEBUG SMTP: useEhlo true, useAuth true
+DEBUG SMTP: trying to connect to host "smtp.gmail.com", port 465, isSSL false
+220 smtp.gmail.com ESMTP i9-20020a17090332c900b00192aa53a7d5sm3820373plr.8 - gsmtp
+DEBUG SMTP: connected to host "smtp.gmail.com", port: 465
+EHLO ip-172-31-43-32.ap-south-1.compute.internal
+250-smtp.gmail.com at your service, [13.232.86.98]
+250-SIZE 35882577
+250-8BITMIME
+250-AUTH LOGIN PLAIN XOAUTH2 PLAIN-CLIENTTOKEN OAUTHBEARER XOAUTH
+250-ENHANCEDSTATUSCODES
+250-PIPELINING
+250-CHUNKING
+250 SMTPUTF8
+DEBUG SMTP: Found extension "SIZE", arg "35882577"
+DEBUG SMTP: Found extension "8BITMIME", arg ""
+DEBUG SMTP: Found extension "AUTH", arg "LOGIN PLAIN XOAUTH2 PLAIN-CLIENTTOKEN OAUTHBEARER XOAUTH"
+DEBUG SMTP: Found extension "ENHANCEDSTATUSCODES", arg ""
+DEBUG SMTP: Found extension "PIPELINING", arg ""
+DEBUG SMTP: Found extension "CHUNKING", arg ""
+DEBUG SMTP: Found extension "SMTPUTF8", arg ""
+DEBUG SMTP: protocolConnect login, host=smtp.gmail.com, user=bharath.ado@gmail.com, password=<non-null>
+DEBUG SMTP: Attempt to authenticate using mechanisms: LOGIN PLAIN DIGEST-MD5 NTLM XOAUTH2 
+DEBUG SMTP: Using mechanism LOGIN
+DEBUG SMTP: AUTH LOGIN command trace suppressed
+DEBUG SMTP: AUTH LOGIN succeeded
+DEBUG SMTP: use8bit false
+MAIL FROM:<nobody@nowhere>
+250 2.1.0 OK i9-20020a17090332c900b00192aa53a7d5sm3820373plr.8 - gsmtp
+DEBUG SMTP: sendPartial set
+RCPT TO:<bharath.manimala@bluepal.com>
+250 2.1.5 OK i9-20020a17090332c900b00192aa53a7d5sm3820373plr.8 - gsmtp
+DEBUG SMTP: Verified Addresses
+DEBUG SMTP:   bharath.manimala@bluepal.com
+DATA
+354  Go ahead i9-20020a17090332c900b00192aa53a7d5sm3820373plr.8 - gsmtp
+
+------=_Part_6_816946123.1687772575909--
+.
+250 2.0.0 OK  1687772578 i9-20020a17090332c900b00192aa53a7d5sm3820373plr.8 - gsmtp
+DEBUG SMTP: message successfully delivered to mail server
+QUIT
+221 2.0.0 closing connection i9-20020a17090332c900b00192aa53a7d5sm3820373plr.8 - gsmtp
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] }
+[Pipeline] // node
+[Pipeline] End of Pipeline
+Finished: SUCCESS
